@@ -1,4 +1,4 @@
 jsPrelude
 =========
 
-Learn Haskell building Prelude function for javascript
+Learn Haskell building Prelude functions for javascript
