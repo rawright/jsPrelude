@@ -1,4 +1,4 @@
-var jsTester = require('../../jsTester/dist/jsTester').jsTester,
+var jsTester = require('../lib/jsTester').jsTester,
   options = {},
   describe = jsTester(options),
   hs = require('../src/prelude');
