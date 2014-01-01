@@ -69,6 +69,12 @@ describe('tail', function (it) {
   });
 });
 
+describe('length', function (it) {
+  it('should return the number of elements in a list', function (expect) {
+    expect(hs.length([])).toBe(0);
+  });
+});
+
 describe('sum', function (it) {
   it('should return the sum of members of an array', function (expect) {
     expect(hs.sum([1,2,3,4,5,6,7,8,9])).toBe(45);
@@ -80,6 +86,19 @@ describe('maximum', function (it) {
   it('should return the maximum value of an array', function (expect) {
     expect(hs.maximum([1,2,3,4,5,6,7,8,9])).toBe(9);
     expect(hs.maximum([9,8,7,6,5,4,3,2,1])).toBe(9);
+  });
+});
+
+describe('minimum', function (it) {
+  it('should return the minimum value of an array', function (expect) {
+    expect(hs.minimum([1,2,3,4,5,6,7,8,9])).toBe(1);
+    expect(hs.minimum([9,8,7,6,5,4,3,2,1])).toBe(1);
+  });
+});
+
+describe('reverse', function (it) {
+  it('should return an array with items in reverse order', function (expect) {
+    expect(hs.reverse([1,2,3,4,5]).join()).toBe([5,4,3,2,1].join());
   });
 });
 

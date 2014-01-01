@@ -55,6 +55,10 @@
     return arr.slice(1);
   }
 
+  function hsLength (arr) {
+    return arr.length;
+  }
+
   function hsSum (arr) {
     var tot = 0;
     for (var i = 0; i < arr.length; i += 1) {
@@ -64,11 +68,15 @@
   }
 
   function hsMaximum (arr) {
-    var mx = arr[0];
-    for (var i = 0; i < arr.length; i += 1) {
-      mx = hsMax(mx, arr[i]);
-    }
-    return mx;
+    return (hsLength(arr) === 1 ? hsHead(arr) : hsMax(hsHead(arr), hsMaximum(hsTail(arr))));
+  }
+
+  function hsMinimum (arr) {
+    return (hsLength(arr) === 1 ? hsHead(arr) : hsMin(hsHead(arr), hsMinimum(hsTail(arr))));
+  }
+
+  function hsReverse (arr) {
+    return arr.reverse();
   }
 
   function hsMap() {
@@ -128,18 +136,6 @@
     return arr.slice(n);
   }
 
-  function xrotate(arr, n) {
-    var arr2 = [],
-      i;
-    for (i = n; i < arr.length; i += 1) {
-      arr2.push(arr[i]);
-    }
-    for (i = 0; i < n; i += 1) {
-      arr2.push(arr[i]);
-    }
-    return arr2;
-  }
-
   function rotate(arr, n) {
     return hsListCat(hsDrop(n, arr), hsTake(n, arr));
   }
@@ -153,8 +149,11 @@
   exports.last = hsLast;
   exports.init = hsInit;
   exports.tail = hsTail;
+  exports.length = hsLength;
   exports.sum = hsSum;
   exports.maximum = hsMaximum;
+  exports.minimum = hsMinimum;
+  exports.reverse = hsReverse;
   exports.map = hsMap;
   exports.filter = hsFilter;
   exports.gt = hsGt;
